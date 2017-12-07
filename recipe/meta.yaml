@@ -1,4 +1,4 @@
-{% set version = "1.11.7" %}
+{% set version = "1.11.8" %}
 
 package:
   name: django
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/D/Django/Django-{{ version }}.tar.gz
-  sha256: 8918e392530d8fc6965a56af6504229e7924c27265893f3949aa0529cd1d4b99
+  sha256: fed3e79bb5a3a8d5eb054c7a1ec1de229ef3f43335a67821cc3e489e9582f711
   patches:
     # Hard-code gdal and geos' paths to the corresponding conda packages.
     - libgdal.patch
@@ -56,6 +56,7 @@ test:
     - django.conf.locale.eo
     - django.conf.locale.es
     - django.conf.locale.es_AR
+    - django.conf.locale.es_CO
     - django.conf.locale.es_MX
     - django.conf.locale.es_NI
     - django.conf.locale.es_PR
@@ -66,6 +67,7 @@ test:
     - django.conf.locale.fr
     - django.conf.locale.fy
     - django.conf.locale.ga
+    - django.conf.locale.gd
     - django.conf.locale.gl
     - django.conf.locale.he
     - django.conf.locale.hi
@@ -119,6 +121,8 @@ test:
     - django.contrib.auth.migrations
     - django.contrib.auth.tests
     - django.contrib.contenttypes
+    - django.contrib.contenttypes.management
+    - django.contrib.contenttypes.management.commands
     - django.contrib.contenttypes.migrations
     - django.contrib.flatpages
     - django.contrib.flatpages.migrations
@@ -135,6 +139,7 @@ test:
     - django.contrib.gis.gdal  # [not win and not py2k]
     - django.contrib.gis.gdal.prototypes  # [not win and not py2k]
     - django.contrib.gis.gdal.raster  # [not win and not py2k]
+    - django.contrib.gis.geoip2
     - django.contrib.gis.geometry  # [not win and not py2k]
     - django.contrib.gis.geos  # [not win and not py2k]
     - django.contrib.gis.geos.prototypes  # [not win and not py2k]
@@ -166,6 +171,8 @@ test:
     - django.contrib.staticfiles.templatetags
     - django.contrib.syndication
     - django.core
+    - django.core.cache
+    - django.core.cache.backends
     - django.core.checks
     - django.core.checks.compatibility
     - django.core.checks.security
@@ -183,12 +190,14 @@ test:
     - django.db.backends.dummy
     - django.db.backends.mysql
     - django.db.backends.oracle
+    - django.db.backends.postgresql
     - django.db.backends.postgresql_psycopg2  # [not win]
     - django.db.backends.sqlite3
     - django.db.migrations
     - django.db.migrations.operations
     - django.db.models
     - django.db.models.fields
+    - django.db.models.functions
     - django.db.models.sql
     - django.dispatch
     - django.forms
@@ -200,6 +209,7 @@ test:
     - django.template.loaders
     - django.templatetags
     - django.test
+    - django.urls
     - django.utils
     - django.utils.translation
     - django.views
