@@ -35,7 +35,7 @@ test:
     # Test optional dependency.
     - psycopg2  # [not win]
     - libgdal
-    - boost 1.66.0
+
   imports:
     - django
     - django.apps
