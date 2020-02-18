@@ -24,6 +24,7 @@ requirements:
     - python
     - pytz
     - sqlparse
+    - asgiref
 
 test:
   requires:
@@ -139,8 +140,8 @@ test:
     - django.contrib.humanize.templatetags
     - django.contrib.messages
     - django.contrib.messages.storage
-    - django.contrib.postgres  # [not win]
-    - django.contrib.postgres.forms  # [not win]
+    - django.contrib.postgres
+    - django.contrib.postgres.forms
     - django.contrib.redirects
     - django.contrib.redirects.migrations
     - django.contrib.sessions
@@ -156,7 +157,6 @@ test:
     - django.contrib.staticfiles
     - django.contrib.staticfiles.management
     - django.contrib.staticfiles.management.commands
-    - django.contrib.staticfiles.templatetags
     - django.contrib.syndication
     - django.core
     - django.core.cache
@@ -179,7 +179,6 @@ test:
     - django.db.backends.mysql
     - django.db.backends.oracle
     - django.db.backends.postgresql
-    - django.db.backends.postgresql_psycopg2  # [not win]
     - django.db.backends.sqlite3
     - django.db.migrations
     - django.db.migrations.operations
