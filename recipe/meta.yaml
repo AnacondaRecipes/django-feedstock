@@ -1,4 +1,4 @@
-{% set version = "2.2.5" %}
+{% set version = "3.0.3" %}
 
 package:
   name: django
@@ -6,15 +6,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/D/Django/Django-{{ version }}.tar.gz
-  sha256: deb70aa038e59b58593673b15e9a711d1e5ccd941b5973b30750d5d026abfd56
-  patches:
-  # Commenting the patches below, hoping that the new pythons will have:
-  # https://github.com/AnacondaRecipes/python-feedstock/commit/68802d19
-  # See: https://github.com/ContinuumIO/anaconda-issues/issues/1716
-  # patches:
+  sha256: 2f1ba1db8648484dd5c238fb62504777b7ad090c81c5f1fd8d5eb5ec21b5f283
 
 build:
-  number: 1
+  number: 0
+  noarch: python
   skip: True  # [py2k]
   script: python -m pip install --no-deps --ignore-installed .
   entry_points:
