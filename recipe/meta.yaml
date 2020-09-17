@@ -25,6 +25,7 @@ requirements:
     - pytz
     - sqlparse
     - asgiref
+    - psycopg2
 
 test:
   requires:
