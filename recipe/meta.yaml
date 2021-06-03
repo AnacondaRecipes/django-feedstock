@@ -19,6 +19,8 @@ requirements:
   host:
     - python >=3.8
     - pip
+    - setuptools
+    - wheel
   run:
     - python >=3.8
     - pytz
@@ -28,6 +30,7 @@ requirements:
 
 test:
   requires:
+    - pip
     # Test optional dependency.
     - psycopg2  # [not win]
   imports:
@@ -202,11 +205,13 @@ test:
     - django.views.decorators
     - django.views.generic
   commands:
+    - pip check
     - django-admin --help
 
 about:
   home: http://www.djangoproject.com/
-  license: BSD 3-Clause
+  license: BSD 3-Clause AND Python Software Foundation License
+  license_family: BSD
   license_file: LICENSE
   summary: 'A high-level Python Web framework that encourages rapid development and clean, pragmatic design.'
   dev_url: https://github.com/django/django
