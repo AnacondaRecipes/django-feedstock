@@ -10,6 +10,7 @@ source:
 
 build:
   number: 0
+  skip: True  # [py<38]
   noarch: python
   script: python -m pip install --no-deps --ignore-installed .
   entry_points:
@@ -17,7 +18,7 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python
     - pip
     - setuptools >=40.8.0
     - wheel
@@ -30,6 +31,7 @@ requirements:
 
 test:
   requires:
+    - python <3.10
     - pip
     # Test optional dependency.
     - psycopg2  # [not win]
