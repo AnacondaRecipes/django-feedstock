@@ -38,7 +38,7 @@ test:
     - django
     - django.apps
     - django.conf
-    - django.conf.app_template.migrations  # [not py27]
+    - django.conf.app_template.migrations
     - django.conf.locale
     - django.conf.locale.ar
     - django.conf.locale.az
