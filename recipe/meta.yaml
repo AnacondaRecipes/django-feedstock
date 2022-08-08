@@ -12,19 +12,20 @@ build:
   number: 0
   noarch: python
   script: python -m pip install --no-deps --ignore-installed .
+  skip: True # [py<38]
   entry_points:
     - django-admin = django.core.management:execute_from_command_line
 
 requirements:
   host:
-    - python >=3.8
+    - python
     - pip
     - setuptools >=40.8.0
     - wheel
   run:
     - asgiref >=3.5.2,<4
     - backports.zoneinfo # [py<39]
-    - python >=3.8
+    - python
     - sqlparse >=0.2.2
     - tzdata # [win]
 
