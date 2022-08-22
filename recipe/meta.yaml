@@ -209,13 +209,13 @@ test:
     - django-admin --help
 
 about:
-  home: http://www.djangoproject.com/
+  home: https://djangoproject.com/
   license: BSD-3-Clause AND PSF-2.0
   license_family: BSD
   license_file: LICENSE
   summary: 'A high-level Python Web framework that encourages rapid development and clean, pragmatic design.'
   dev_url: https://github.com/django/django
-  doc_url: http://www.djangoproject.com/
+  doc_url: https://docs.djangoproject.com/en/3.2/
 
 extra:
   recipe-maintainers:
