@@ -26,14 +26,13 @@ requirements:
     - backports.zoneinfo # [py<39]
     - python
     - sqlparse >=0.2.2
-    - tzdata # [win]
+    - python-tzdata # [win]
 
 test:
   requires:
     - pip
     # Test optional dependency.
     - psycopg2  # [not win]
-    - tzdata # [win]
   imports:
     - django
     - django.apps
