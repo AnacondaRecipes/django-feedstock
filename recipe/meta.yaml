@@ -33,6 +33,7 @@ test:
     - pip
     # Test optional dependency.
     - psycopg2  # [not win]
+    - tzdata # [win]
   imports:
     - django
     - django.apps
