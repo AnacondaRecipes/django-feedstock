@@ -37,7 +37,7 @@ test:
     - django
     - django.apps
     - django.conf
-    - django.conf.app_template.migrations  # [not py27]
+    - django.conf.app_template.migrations
     - django.conf.locale
     - django.conf.locale.ar
     - django.conf.locale.az
@@ -135,16 +135,16 @@ test:
     - django.contrib.gis.db.backends.oracle
     - django.contrib.gis.db.backends.postgis
     - django.contrib.gis.db.backends.spatialite
-    - django.contrib.gis.geometry  # [not win and not py2k]
-    - django.contrib.gis.management  # [not win and not py2k]
-    - django.contrib.gis.management.commands  # [not win and not py2k]
-    - django.contrib.gis.serializers  # [not win and not py2k]
+    - django.contrib.gis.geometry  # [not win]
+    - django.contrib.gis.management  # [not win]
+    - django.contrib.gis.management.commands  # [not win]
+    - django.contrib.gis.serializers  # [not win]
     - django.contrib.humanize
     - django.contrib.humanize.templatetags
     - django.contrib.messages
     - django.contrib.messages.storage
-    - django.contrib.postgres
-    - django.contrib.postgres.forms
+    - django.contrib.postgres  # [not win]
+    - django.contrib.postgres.forms  # [not win]
     - django.contrib.redirects
     - django.contrib.redirects.migrations
     - django.contrib.sessions
