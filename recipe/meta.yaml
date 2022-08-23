@@ -210,7 +210,7 @@ test:
 
 about:
   home: http://www.djangoproject.com/
-  license: BSD 3-Clause AND PSF-2.0
+  license: BSD-3-Clause AND PSF-2.0
   license_family: BSD
   license_file: LICENSE
   license_url: https://github.com/django/django/blob/main/LICENSE
