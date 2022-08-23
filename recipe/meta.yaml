@@ -1,4 +1,4 @@
-{% set version = "3.2.5" %}
+{% set version = "3.2.15" %}
 
 package:
   name: django
@@ -6,23 +6,23 @@ package:
 
 source:
   url: https://pypi.io/packages/source/D/Django/Django-{{ version }}.tar.gz
-  sha256: 3da05fea54fdec2315b54a563d5b59f3b4e2b1e69c3a5841dda35019c01855cd
+  sha256: f71934b1a822f14a86c9ac9634053689279cd04ae69cb6ade4a59471b886582b
 
 build:
   number: 0
-  noarch: python
   script: python -m pip install --no-deps --ignore-installed .
+  skip: True # [py<36]
   entry_points:
     - django-admin = django.core.management:execute_from_command_line
 
 requirements:
   host:
-    - python >=3.8
+    - python
     - pip
-    - setuptools >=40.8.0
+    - setuptools
     - wheel
   run:
-    - python >=3.8
+    - python
     - pytz
     - sqlparse >=0.2.2
     - asgiref >=3.3.2,<4
@@ -37,7 +37,7 @@ test:
     - django
     - django.apps
     - django.conf
-    - django.conf.app_template.migrations  # [not py27]
+    - django.conf.app_template.migrations
     - django.conf.locale
     - django.conf.locale.ar
     - django.conf.locale.az
@@ -135,16 +135,16 @@ test:
     - django.contrib.gis.db.backends.oracle
     - django.contrib.gis.db.backends.postgis
     - django.contrib.gis.db.backends.spatialite
-    - django.contrib.gis.geometry  # [not win and not py2k]
-    - django.contrib.gis.management  # [not win and not py2k]
-    - django.contrib.gis.management.commands  # [not win and not py2k]
-    - django.contrib.gis.serializers  # [not win and not py2k]
+    - django.contrib.gis.geometry  # [not win]
+    - django.contrib.gis.management  # [not win]
+    - django.contrib.gis.management.commands  # [not win]
+    - django.contrib.gis.serializers  # [not win]
     - django.contrib.humanize
     - django.contrib.humanize.templatetags
     - django.contrib.messages
     - django.contrib.messages.storage
-    - django.contrib.postgres
-    - django.contrib.postgres.forms
+    - django.contrib.postgres  # [not win]
+    - django.contrib.postgres.forms  # [not win]
     - django.contrib.redirects
     - django.contrib.redirects.migrations
     - django.contrib.sessions
@@ -209,13 +209,13 @@ test:
     - django-admin --help
 
 about:
-  home: http://www.djangoproject.com/
+  home: https://www.djangoproject.com/
   license: BSD-3-Clause AND PSF-2.0
   license_family: BSD
   license_file: LICENSE
   summary: 'A high-level Python Web framework that encourages rapid development and clean, pragmatic design.'
   dev_url: https://github.com/django/django
-  doc_url: http://www.djangoproject.com/
+  doc_url: https://docs.djangoproject.com/en/3.2/
 
 extra:
   recipe-maintainers:
