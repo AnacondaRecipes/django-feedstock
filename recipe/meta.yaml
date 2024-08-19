@@ -10,9 +10,7 @@ source:
 
 build:
   number: 0
-  script:
-    - {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
-    - sed -i.bak "/tzdata/d" setup.cfg
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
   skip: True  # [py<310]
   entry_points:
     - django-admin = django.core.management:execute_from_command_line
@@ -199,12 +197,15 @@ test:
     - django-admin --help
 
 about:
-  home: http://www.djangoproject.com/
+  home: https://www.djangoproject.com/
   license: BSD-3-Clause AND PSF-2.0
   license_family: BSD
   license_file: LICENSE
-  license_url: https://github.com/django/django/blob/main/LICENSE
   summary: 'A high-level Python Web framework that encourages rapid development and clean, pragmatic design.'
+  description: |
+    django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design.
+    Built by experienced developers, it takes care of much of the hassle of Web development, so you can focus
+    on writing your app without needing to reinvent the wheel. It's free and open source.
   dev_url: https://github.com/django/django
   doc_url: https://docs.djangoproject.com/4.1/
 
