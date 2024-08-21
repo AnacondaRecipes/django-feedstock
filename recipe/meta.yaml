@@ -25,12 +25,13 @@ requirements:
     - python
     - asgiref >=3.8.1
     - sqlparse >=0.3.1
-    - tzdata
+
 
 
 test:
   requires:
     - pip
+    - tzdata
     # Test optional dependency.
     - psycopg2  # [not win]
   imports:
