@@ -10,9 +10,7 @@ source:
 
 build:
   number: 0
-  script:
-    - {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
-    - sed -i.bak "/tzdata/d" setup.cfg
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
   skip: True  # [py<310]
   entry_points:
     - django-admin = django.core.management:execute_from_command_line
@@ -28,6 +26,7 @@ requirements:
     - python
     - asgiref >=3.8.1
     - sqlparse >=0.3.1
+    - python-tzdata # [win]
 
 
 
