@@ -23,6 +23,7 @@ requirements:
     - pip
     - setuptools
     - wheel
+    - tzdata
   run:
     - python
     - asgiref >=3.8.1
