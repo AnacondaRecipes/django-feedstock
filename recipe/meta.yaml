@@ -10,7 +10,9 @@ source:
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
+  script:
+    - {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
+    - sed -i.bak "/tzdata/d" setup.cfg
   skip: True  # [py<310]
   entry_points:
     - django-admin = django.core.management:execute_from_command_line
@@ -31,7 +33,6 @@ requirements:
 test:
   requires:
     - pip
-    - tzdata
     # Test optional dependency.
     - psycopg2  # [not win]
   imports:
