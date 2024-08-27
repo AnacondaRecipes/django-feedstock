@@ -19,6 +19,9 @@ build:
     - django-admin = django.core.management:execute_from_command_line
 
 requirements:
+  build:
+    - patch   # [unix]
+    - m2-patch  # [win]
   host:
     - python
     - pip
