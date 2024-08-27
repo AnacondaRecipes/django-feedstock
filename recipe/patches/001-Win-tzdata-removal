@@ -1,4 +1,12 @@
-diff --cc pyproject.toml
-index 5c85cf42b6,d48b2a959e..0000000000
+diff --git a/pyproject.toml b/pyproject.toml
+index 5c85cf42b6..08e477c8b2 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
+@@ -9,7 +9,6 @@ requires-python = ">= 3.10"
+ dependencies = [
+     "asgiref>=3.8.1,<4",
+     "sqlparse>=0.3.1",
+-    "tzdata; sys_platform == 'win32'",
+ ]
+ authors = [
+   {name = "Django Software Foundation", email = "foundation@djangoproject.com"},
