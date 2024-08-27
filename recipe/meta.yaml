@@ -11,9 +11,7 @@ source:
     - 001-Win-tzdata-removal   # [win]
 build:
   number: 0
-  script:
-    - sed -i.bak "/tzdata/d" setup.cfg
-    - {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
   skip: True  # [py<310]
   entry_points:
     - django-admin = django.core.management:execute_from_command_line
@@ -27,7 +25,6 @@ requirements:
     - pip
     - setuptools
     - wheel
-    - patch
   run:
     - python
     - asgiref >=3.8.1
