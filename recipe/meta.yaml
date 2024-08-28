@@ -31,6 +31,8 @@ requirements:
     - python
     - asgiref >=3.8.1
     - sqlparse >=0.3.1
+  run_constrained:
+    - argon2-cffi >=19.1.0
 
 
 test:
