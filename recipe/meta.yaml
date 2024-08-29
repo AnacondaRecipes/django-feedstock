@@ -20,7 +20,6 @@ build:
 
 requirements:
   build:
-    - patch   # [unix]
     - m2-patch  # [win]
   host:
     - python
