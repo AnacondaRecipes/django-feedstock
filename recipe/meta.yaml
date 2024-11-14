@@ -30,6 +30,8 @@ requirements:
     - python
     - asgiref >=3.8.1,<4
     - sqlparse >=0.3.1
+    # the conda python package depends on tzdata
+    #- tzdata  # [win]
   run_constrained:
     - argon2-cffi >=19.1.0
 
