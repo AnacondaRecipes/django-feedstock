@@ -10,7 +10,7 @@ source:
 # python-tzdata is a fallback package for systems not providing timezone data, but the conda python package depends on tzdata.
 # Therefore we do not need to depend on python-tzdata.
   # patches:
-  #   - patches/001-Win-tzdata-removal.patch   # [win]
+    - patches/001-Win-tzdata-removal.patch   # [win]
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
