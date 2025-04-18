@@ -7,6 +7,8 @@ package:
 source:
   url: https://github.com/django/django/archive/refs/tags/{{ version }}.tar.gz
   sha256: 25dd8b612f50bde9a395b370a2e7f6dd768ae125d92203781150aec672074d09
+  patches:
+    - patches/001-Win-tzdata-removal.patch   # [win]
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
@@ -15,6 +17,8 @@ build:
     - django-admin = django.core.management:execute_from_command_line
 
 requirements:
+  build:
+    - m2-patch  # [win]
   host:
     - python
     - pip
