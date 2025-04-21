@@ -9,6 +9,8 @@ source:
   sha256: 25dd8b612f50bde9a395b370a2e7f6dd768ae125d92203781150aec672074d09
   patches:
     - patches/001-Win-tzdata-removal.patch   # [win]
+# python-tzdata is a fallback package for systems not providing timezone data, but the conda python package depends on tzdata.
+# Therefore we do not need to depend on python-tzdata.
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
@@ -24,6 +26,9 @@ requirements:
     - pip
     - setuptools
     - wheel
+  # setuptools intentionally left unpinned—upstream’s suggested range tops out before 72.10,
+  # the first version that supports Python 3.13, so the loose pin allows Django 5.2 to build cleanly
+  # on multiple platforms.
   run:
     - python
     - asgiref >=3.8.1
