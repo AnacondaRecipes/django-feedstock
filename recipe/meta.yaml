@@ -1,16 +1,16 @@
-{% set version = "5.1.3" %}
+{% set version = "5.2" %}
 
 package:
   name: django
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/D/Django/Django-{{ version }}.tar.gz
-  sha256: c0fa0e619c39325a169208caef234f90baa925227032ad3f44842ba14d75234a
-# python-tzdata is a fallback package for systems not providing timezone data, but the conda python package depends on tzdata.
-# Therefore we do not need to depend on python-tzdata.
+  url: https://github.com/django/django/archive/refs/tags/{{ version }}.tar.gz
+  sha256: 25dd8b612f50bde9a395b370a2e7f6dd768ae125d92203781150aec672074d09
   patches:
     - patches/001-Win-tzdata-removal.patch   # [win]
+# python-tzdata is a fallback package for systems not providing timezone data, but the conda python package depends on tzdata.
+# Therefore we do not need to depend on python-tzdata.
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
@@ -18,27 +18,27 @@ build:
   entry_points:
     - django-admin = django.core.management:execute_from_command_line
 
+# setuptools left unpinned—upstream caps below 72.10 (first Py 3.13 wheels), so a loose pin keeps Django 5.2 building everywhere.
 requirements:
   build:
     - m2-patch  # [win]
   host:
     - python
     - pip
-    - setuptools >=61.0.0,<69.3.0
+    - setuptools
     - wheel
   run:
     - python
-    - asgiref >=3.8.1,<4
+    - asgiref >=3.8.1
     - sqlparse >=0.3.1
   run_constrained:
     - argon2-cffi >=19.1.0
 
-
 test:
   requires:
     - pip
+    - psycopg2
     # Test optional dependency.
-    - psycopg2  # [not win]
   imports:
     - django
     - django.apps
