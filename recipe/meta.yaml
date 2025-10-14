@@ -194,7 +194,6 @@ test:
     - django.views.generic
   requires:
     - pip
-    - pytest
     - psycopg2
     # Test optional dependency.
   commands:
