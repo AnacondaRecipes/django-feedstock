@@ -1,4 +1,4 @@
-{% set version = "5.2" %}
+{% set version = "5.2.1" %}
 
 package:
   name: django
@@ -6,15 +6,16 @@ package:
 
 source:
   url: https://github.com/django/django/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 25dd8b612f50bde9a395b370a2e7f6dd768ae125d92203781150aec672074d09
+  sha256: 07387d6874e47225804bc589282165af137b9d3214e1b55590b2d33201f36c70
   patches:
-    - patches/001-Win-tzdata-removal.patch   # [win]
+    - patches/001-Win-tzdata-removal.patch  # [win]
+
 # python-tzdata is a fallback package for systems not providing timezone data, but the conda python package depends on tzdata.
 # Therefore we do not need to depend on python-tzdata.
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
-  skip: True  # [py<310]
+  skip: true  # [py<310]
   entry_points:
     - django-admin = django.core.management:execute_from_command_line
 
@@ -25,12 +26,12 @@ requirements:
   host:
     - python
     - pip
-    - setuptools
-    - wheel
+    - setuptools >=75.8.1
   run:
     - python
     - asgiref >=3.8.1
     - sqlparse >=0.3.1
+    - tzdata  # [win]
   run_constrained:
     - argon2-cffi >=19.1.0
 
@@ -38,7 +39,7 @@ test:
   requires:
     - pip
     - psycopg2
-    # Test optional dependency.
+  # Test optional dependency.
   imports:
     - django
     - django.apps
@@ -208,7 +209,7 @@ about:
   license: BSD-3-Clause AND PSF-2.0
   license_family: BSD
   license_file: LICENSE
-  summary: 'A high-level Python Web framework that encourages rapid development and clean, pragmatic design.'
+  summary: A high-level Python Web framework that encourages rapid development and clean, pragmatic design.
   description: |
     django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design.
     Built by experienced developers, it takes care of much of the hassle of Web development, so you can focus
