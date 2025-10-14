@@ -1,12 +1,13 @@
-{% set version = "5.2" %}
+{% set name = "django" %}
+{% set version = "5.2.7" %}
 
 package:
-  name: django
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/django/django/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 25dd8b612f50bde9a395b370a2e7f6dd768ae125d92203781150aec672074d09
+  url: https://github.com/{{ name }}/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
+  sha256: 2b99994c8f9a31740cb9452aaf518f09ab9b446916bba80d1dcc31c1474b53fa
   patches:
     - patches/001-Win-tzdata-removal.patch   # [win]
 # python-tzdata is a fallback package for systems not providing timezone data, but the conda python package depends on tzdata.
@@ -17,16 +18,12 @@ build:
   skip: True  # [py<310]
   entry_points:
     - django-admin = django.core.management:execute_from_command_line
-
-# setuptools left unpinned—upstream caps below 72.10 (first Py 3.13 wheels), so a loose pin keeps Django 5.2 building everywhere.
+  
 requirements:
-  build:
-    - m2-patch  # [win]
   host:
     - python
     - pip
-    - setuptools
-    - wheel
+    - setuptools >=75.8.1
   run:
     - python
     - asgiref >=3.8.1
@@ -35,10 +32,6 @@ requirements:
     - argon2-cffi >=19.1.0
 
 test:
-  requires:
-    - pip
-    - psycopg2
-    # Test optional dependency.
   imports:
     - django
     - django.apps
@@ -199,8 +192,14 @@ test:
     - django.views
     - django.views.decorators
     - django.views.generic
+  requires:
+    - pip
+    - pytest
+    - psycopg2
+    # Test optional dependency.
   commands:
     - pip check
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
     - django-admin --help
 
 about:
