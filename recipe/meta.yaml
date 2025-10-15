@@ -200,6 +200,7 @@ test:
     - pip check
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
     - django-admin --help
+    # Cannot run upstream tests due to missing github_links and hanging.
 
 about:
   home: https://www.djangoproject.com
