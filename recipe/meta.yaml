@@ -202,7 +202,7 @@ test:
     - django-admin --help
 
 about:
-  home: https://www.djangoproject.com/
+  home: https://www.djangoproject.com
   license: BSD-3-Clause AND PSF-2.0
   license_family: BSD
   license_file: LICENSE
@@ -212,7 +212,7 @@ about:
     Built by experienced developers, it takes care of much of the hassle of Web development, so you can focus
     on writing your app without needing to reinvent the wheel. It's free and open source.
   dev_url: https://github.com/django/django
-  doc_url: https://docs.djangoproject.com/4.1/
+  doc_url: https://docs.djangoproject.com
 
 extra:
   recipe-maintainers:
