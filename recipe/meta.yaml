@@ -1,5 +1,5 @@
 {% set name = "django" %}
-{% set version = "5.2.7" %}
+{% set version = "5.2.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/{{ name }}/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 2b99994c8f9a31740cb9452aaf518f09ab9b446916bba80d1dcc31c1474b53fa
+  sha256: cb217ba7b0742bbff7b4c5911aad53458507ff668d03bc4de764f604ee21c0d7
   patches:
     - patches/001-Win-tzdata-removal.patch   # [win]
 # python-tzdata is a fallback package for systems not providing timezone data, but the conda python package depends on tzdata.
