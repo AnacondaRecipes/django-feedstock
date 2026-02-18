@@ -16,7 +16,7 @@ source:
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
-  skip: true  # [py<310]
+  skip: true  # [py<312]
   entry_points:
     - django-admin = django.core.management:execute_from_command_line
 
@@ -24,13 +24,14 @@ requirements:
   host:
     - python
     - pip
-    - setuptools >=75.8.1
+    - setuptools >=77.0.3
   run:
     - python
-    - asgiref >=3.8.1
-    - sqlparse >=0.3.1
+    - asgiref >=3.9.1
+    - sqlparse >=0.5.0
   run_constrained:
-    - argon2-cffi >=19.1.0
+    - argon2-cffi >=23.1.0
+    - bcrypt >=4.1.1
 
 test:
   imports:
