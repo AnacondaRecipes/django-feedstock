@@ -10,7 +10,7 @@ source:
   sha256: 47323c12a692ed33f83d1d8d45353721c8f3fe88fbedd0fb68e03d4dd85112a0
   patches:
   # python-tzdata is a fallback package for systems not providing timezone data, but the conda python package depends on tzdata.
-  <conda_recipe_manager.types.SentinelType object at 0x7f02cfda6510>:  # Therefore we do not need to depend on python-tzdata.
+  # Therefore we do not need to depend on python-tzdata.
     - patches/001-Win-tzdata-removal.patch  # [win]
 
 build:
