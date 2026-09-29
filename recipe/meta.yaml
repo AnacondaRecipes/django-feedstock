@@ -1,5 +1,5 @@
 {% set name = "django" %}
-{% set version = "6.0.8" %}
+{% set version = "6.1.1" %}
 
 package:
   name: {{ name }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/{{ name }}/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: ae848fbfefee9fe2ea453a5f51c98426d54d615144c797b429b59665166ca34e
+  sha256: 32e24244c151fb1e1257a4e550557f1c052a48a9e3b5b77604cdc48b84007d73
   patches:
   # python-tzdata is a fallback package for systems not providing timezone data, but the conda python package depends on tzdata.
-  # Therefore we do not need to depend on python-tzdata.
+  <conda_recipe_manager.types.SentinelType object at 0x7efec9336270>:  # Therefore we do not need to depend on python-tzdata.
     - patches/001-Win-tzdata-removal.patch  # [win]
 
 build:
@@ -27,7 +27,7 @@ requirements:
     - setuptools >=83
   run:
     - python
-    - asgiref >=3.12.1
+    - asgiref >=3.9.1
     - sqlparse >=0.5.0
     - tzdata  # [win]
   run_constrained:
