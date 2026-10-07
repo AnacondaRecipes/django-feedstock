@@ -1,5 +1,5 @@
 {% set name = "django" %}
-{% set version = "6.1.1" %}
+{% set version = "6.1.2" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/{{ name }}/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 32e24244c151fb1e1257a4e550557f1c052a48a9e3b5b77604cdc48b84007d73
+  sha256: 415e47f6da5a709ae0528335df435b413e7317ef9c99ab9eafc9614413edf1ad
   patches:
   # python-tzdata is a fallback package for systems not providing timezone data, but the conda python package depends on tzdata.
   # Therefore we do not need to depend on python-tzdata.
